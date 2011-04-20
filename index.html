@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Travelmapper</title>
+
+    <link rel="stylesheet" href="main.css"/>
+    <link rel="stylesheet" href="gh-buttons.css"/>
+
+    <script src="jquery.js"></script>
+    <script src="jquery.autocomplete.js"></script>
+    <script src="jquery.bgiframe.min.js"></script>
+    <script src="countries.en.js"></script>
+    <script src="main.js"></script>
+    
+  </head>
+  
+  <body>
+    
+    <header>
+      <h1>Travelmapper - show your travels!</h1>
+    </header>
+
+    <div style="float: right">
+      Travelled countries (click to remove) <br />
+      <span id="no-countries">none yet</span>
+      <div id="selected-countries">
+      </div>
+    </div>
+
+    <div id="countries">
+	  <p>
+		<label for="ac_country">Add a country:</label>
+		<input type="text" id="ac_country" name="country" value="Type country letters" />
+	  </p>
+    </div>
+
+    
+    <div id="map">
+      <img id="map-img"
+           src="http://chart.apis.google.com/chart?cht=map:fixed=-70,-180,80,180&chs=600x400&chf=bg,s,336699&chco=d0d0d0,cc0000" />
+    </div>
+
+    <div>
+      <textarea id="url-area" cols="72" onclick="this.select()" rows="5">http://chart.apis.google.com/chart?cht=map:fixed=-70,-180,80,180&chs=600x400&chf=bg,s,336699&chco=d0d0d0,cc0000</textarea>
+    </div>
+
+    <footer>(C) Ivan Veselov - 2011</footer>
+    
+  </body>
+</html>
