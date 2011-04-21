@@ -12,7 +12,7 @@ function formatMapUrl(countries) {
     return base + colors + countriesStr + chd;
 }
 
-function update() {
+function updateView() {
     var mapUrl = formatMapUrl(travelled);
     $("#map-img").attr("src", mapUrl);
     $("#url-area").text(mapUrl);
@@ -29,10 +29,18 @@ function addCountry(country) {
 
     // no duplicates, so add it to our 'travelled' data and update 'view'
     travelled.push(country);
-    var elt = "<button class='button icon pin' onclick='removeCountry(this)'>" + country.name + "</button>";
-    //var elt = "<li class='country' onclick='removeCountry(this)'>" + country.name + "</li>";
+
+    // create country element
+    var elt = $("<button>").addClass("button icon pin").text(country.name)
+      .click(
+        function() { removeCountry($(this).get(0)); })
+      .hover(
+        function() { $(this).addClass("remove").removeClass("pin"); },
+        function() { $(this).addClass("pin").removeClass("remove"); }
+    );
+
     $("#selected-countries").append(elt);
-    update();
+    updateView();
 }
 
 function removeCountry(el) {
@@ -40,7 +48,7 @@ function removeCountry(el) {
         if (travelled[i].name === el.textContent) {
             travelled.splice(i, 1);
             $(el).remove();
-            update();
+            updateView();
             return;
         }
     }
@@ -54,7 +62,7 @@ $.fn.clearField = function() {
     }).blur(function() {
         this.value = this.defaultValue;
     });
-};	
+};
 
 $(function() {
 	var ac_country = "#ac_country";
