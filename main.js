@@ -19,6 +19,22 @@ function update() {
     $("#no-countries").html(travelled.length > 0 ? "count: " + travelled.length : "none");
 }
 
+function addCountry(country) {
+    for (var i = 0; i < travelled.length; i++) {
+        if (travelled[i].name === country.name) {
+            // do not allow duplicates
+            return;
+        }
+    }
+
+    // no duplicates, so add it to our 'travelled' data and update 'view'
+    travelled.push(country);
+    var elt = "<button class='button icon pin' onclick='removeCountry(this)'>" + country.name + "</button>";
+    //var elt = "<li class='country' onclick='removeCountry(this)'>" + country.name + "</li>";
+    $("#selected-countries").append(elt);
+    update();
+}
+
 function removeCountry(el) {
     for (var i = 0; i < travelled.length; i++) {
         if (travelled[i].name === el.textContent) {
@@ -63,10 +79,6 @@ $(function() {
 	$(ac_country).result(
         function(event, data, formatted) {
             $(ac_country).val("");
-            travelled.push(data);
-            var elt = "<button class='button icon pin' onclick='removeCountry(this)'>" + data.name + "</button>";
-            var elt2 = "<li class='country' onclick='removeCountry(this)'>" + data.name + "</li>";
-            $("#selected-countries").append(elt);
-            update();
+            addCountry(data);
 	    });
 });
