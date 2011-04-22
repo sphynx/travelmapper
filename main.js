@@ -61,8 +61,12 @@ var ds_travelmapper = ( function() {
         var mapUrl = formatMapUrl(travelled);
         $("#map-img").attr("src", mapUrl);
         $("#url-area").text(mapUrl);
-        $("#no-countries").html(
-            travelled.length > 0 ? "count: " + travelled.length : "none");
+        $("#counter").html("" + travelled.length);
+        if (travelled.length > 0) {
+            $("#no-countries").hide();
+        } else {
+            $("#no-countries").show();
+        }
     }
 
     function createCountryElement(country) {
