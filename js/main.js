@@ -50,11 +50,15 @@ var ds_travelmapper = ( function() {
     function decode(countriesStr) {
         if (!countriesStr) return [];
 
+        var countries = [];
         var codeNames = countriesStr.split("|");
-        return $.map(codeNames, function(codeName) {
+        $.each(codeNames, function(ix, codeName) {
             var pair = codeName.split(":");
-            return { code: pair[0], name: pair[1] };
+            if (pair.length === 2) {
+                countries.push({ code: pair[0], name: pair[1] });
+            }
         });
+        return countries;
     }
 
     function updateView() {
