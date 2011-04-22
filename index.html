@@ -2,11 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="author" content="Ivan Veselov">
+    <meta name="keywords" content="travel, travelmap, map, googlecharts api">
+    <meta name="description" content="Service for travel map generation">
     
     <title>Travelmapper</title>
 
-    <link rel="stylesheet" href="main.css"/>
     <link rel="stylesheet" href="gh-buttons.css"/>
+    <link rel="stylesheet" href="main.css"/>
 
     <script src="jquery.js"></script>
     <script src="jquery.autocomplete.js"></script>
@@ -22,21 +25,20 @@
       <h1>Travelmapper - show your travels!</h1>
     </header>
 
-    <div style="float: right">
-      Travelled countries (click to remove) <span id="counter">0</span><br />
-      <span id="no-countries">none yet</span>
-      <div id="selected-countries">
-      </div>
-    </div>
-
-    <div id="countries">
+    <div id="autocomplete">
 	  <p>
 		<label for="ac_country">Add a country:</label>
 		<input type="text" id="ac_country" name="country" value="Type country letters" />
 	  </p>
     </div>
 
-    
+    <div id="countries-block">
+      Travelled countries (click to remove) <span id="counter">0</span><br />
+      <span id="no-countries">none yet</span>
+      <div id="selected-countries">
+      </div>
+    </div>
+
     <div id="map">
       <img id="map-img"
            src="http://chart.apis.google.com/chart?cht=map:fixed=-70,-180,80,180&chs=600x400&chf=bg,s,336699&chco=d0d0d0,cc0000" />

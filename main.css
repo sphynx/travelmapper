@@ -98,10 +98,18 @@ footer { text-align: center; margin-top: 1em; }
 #counter {
     font-size: 2em;
     color: gray;
-    margin-left: 2em;
+    margin-left: 3em;
 }
 
-#selected-countries {
-    width: 400px;
-    margin: 0px;
+#countries-block {
+    float: right;
+    width: 450px;
+}
+
+.button:first-child {
+    margin-left: 15px;
+}
+
+.button {
+    margin-top: 10px;
 }
