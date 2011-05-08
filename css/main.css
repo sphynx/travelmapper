@@ -17,6 +17,8 @@ a img { border: 0px; }
 /* No dots around clicked links */
 a, a:active { outline: none; }
 
+a:visited { color: blue; }
+
 /* HTML5 tags */
 header, section, footer, aside, nav, article, figure { display: block; }
 
